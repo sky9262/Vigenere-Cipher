@@ -60,7 +60,8 @@ This project provides a user-friendly interface for entering plaintext and keys 
 ### Prerequisites
 
 - Web browser (e.g., Chrome, Firefox, Safari)
-- Web server (for server-side encryption and decryption, if required)
+- Python3
+- Modules (flask, time, colorama, argparse, sys, random)
 
 ### Run
 
