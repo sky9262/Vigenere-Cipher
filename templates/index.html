@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title id="website-title">ヴィジュネル暗号 | @sky9262</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
@@ -199,8 +200,8 @@
             });
             document.getElementById("encryption-label").textContent = isEnglish ? englishTabLabels[0]:japaneseTabLabels[0];
             document.getElementById("decryption-label").textContent = isEnglish ? englishTabLabels[1]:japaneseTabLabels[1];
-            document.getElementById("website-title").textContent = isEnglish ? "Vigenère Cipher":"ヴィジュネル暗号";
-            document.getElementById("website-header").textContent = isEnglish ? "Vigenère Cipher":"ヴィジュネル暗号";
+            document.getElementById("website-title").textContent = isEnglish ? "Vigenère Cipher | @sky9262":"ヴィジュネル暗号 | @sky9262";
+            document.getElementById("website-header").textContent = isEnglish ? "Vigenère Cipher | @sky9262":"ヴィジュネル暗号 | @sky9262";
         });
     </script>
 

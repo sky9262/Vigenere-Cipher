@@ -4,7 +4,8 @@ from EN_Vigenère_Cipher import vigenere_decrypt as EN_decrypt, vigenere_encrypt
 
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
+
 
 @app.route('/')
 def index():
