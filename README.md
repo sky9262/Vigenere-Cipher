@@ -1,13 +1,14 @@
 # Vigenère Cipher
 
-[![Logo](./static/icon.png)](https://github.com/sky9262/Vigenere-Cipher)
+[![Logo](./static/icon.png)](https://github.com/sky9262/Vigenere-Cipher){:target="_blank"}
 
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/your-username/vigenere-cipher-web-app/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/your-username/vigenere-cipher-web-app/blob/master/LICENSE){:target="_blank"}
 
 🔐📊🚀
 
-[![Live](./static/Live-Click%20Here.svg)](https://vigenerecipher.pythonanywhere.com/)
+[![Live](./static/Live-Click%20Here.svg)](https://vigenerecipher.pythonanywhere.com/){:target="_blank"}
+
 
 
 
