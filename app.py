@@ -39,13 +39,13 @@ def decryption():
 
 @app.route('/encrypt', methods=['GET'])
 def encrypt_get():
-    language = request.args.get('lan')
-    text = request.args.get('txt')
+    language = request.args.get('lang')
+    text = request.args.get('text')
     key = request.args.get('key')
     type = request.args.get('type')
-    if language == "eng":
+    if language == "en" or language == "eng" or language == "english":
         result = EN_encrypt(text, key)
-    elif language == "jap":
+    elif language == "jp" or language == "jap" or language == "japanese":
         result = JP_encrypt(text, key)
     else:
         result = "Language not supported"
@@ -57,13 +57,13 @@ def encrypt_get():
 
 @app.route('/decrypt', methods=['GET'])
 def decrypt_get():
-    language = request.args.get('lan')
-    text = request.args.get('txt')
+    language = request.args.get('lang')
+    text = request.args.get('text')
     key = request.args.get('key')
     type = request.args.get('type')
-    if language == "eng":
+    if language == "en" or language == "eng" or language == "english":
         result = EN_decrypt(text, key)
-    elif language == "jap":
+    elif language == "jp" or language == "jap" or language == "japanese":
         result = JP_decrypt(text, key)
     else:
         result = "language not supported"
