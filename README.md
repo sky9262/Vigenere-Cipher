@@ -18,6 +18,14 @@
 :: Workflow ::
 </h3>
 
+## Web Demo
+[WebDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/6bc517e8-fb0a-4b31-90b9-3377fb8cd356)
+
+## Terminal Demo
+[WebDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/5ad72450-6d9c-43f1-b1a9-3df4031574a6)
+
+
+
 
 ## Table of Contents
 
