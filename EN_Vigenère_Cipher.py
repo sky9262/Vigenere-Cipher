@@ -87,37 +87,39 @@ def gen_ran_char(char):
     pass
 
 def Decrypt_Animation(from_, to_):
+    chars = list(from_)  # Convert to a list for character replacement
+    to_ = list(to_)
     for i in range(len(to_)):
-        chars = list(from_)  # Convert to a list for character replacement
-        if ('a' <= chars[i] <= 'z') or ('A' <= chars[i] <= 'Z'):
-            for _ in range(10):
-                chars[i] = gen_ran_char(chars[i])  # Random character
-                # Prepare the line to print
-                line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + chars[i] + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
+        for _ in range(5):
+            chars[i] = gen_ran_char(chars[i])  # Random character
+            # Prepare the line to print
+            line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
 
-                print("\rDecrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
-                time.sleep(0.1)
-            chars[i] = to_[i]  # Replace with the original character
+            print("\rDecrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+            time.sleep(0.1)
+        chars[i] = to_[i]  # Replace to original character
 
-        print("\rDecrypted Text: " + colorama.Fore.GREEN + to_ + colorama.Fore.RESET, end='', flush=True)  # Use carriage return instead of clearing the screen
-        time.sleep(0.1)
+        line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
+        print("\rDecrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+        # time.sleep(0.1)
         from_ = "".join(chars)
 
 def Encrypt_Animation(from_, to_):
+    chars = list(from_)  # Convert to a list for character replacement
+    to_ = list(to_)
     for i in range(len(to_)):
-        chars = list(from_)  # Convert to a list for character replacement
-        if ('a' <= chars[i] <= 'z') or ('A' <= chars[i] <= 'Z'):
-            for _ in range(10):
-                chars[i] = gen_ran_char(chars[i])  # Random character
+        for _ in range(5):
+            chars[i] = gen_ran_char(chars[i])  # Random character
                 # Prepare the line to print
-                line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + chars[i] + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
+            line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
 
-                print("\rDecrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
-                time.sleep(0.1)
-            chars[i] = to_[i]  # Replace with the original character
+            print("\rEncrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+            time.sleep(0.1)
+        chars[i] = to_[i]  # Replace to original character
 
-        print("\rDecrypted Text: " + colorama.Fore.RED + to_ + colorama.Fore.RESET, end='', flush=True)  # Use carriage return instead of clearing the screen
-        time.sleep(0.1)
+        line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
+        print("\rEncrypted Text: " + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+        # time.sleep(0.1)
         from_ = "".join(chars)
 
 def noArgs():

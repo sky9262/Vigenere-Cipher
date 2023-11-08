@@ -130,37 +130,39 @@ def gen_ran_char(char):
     return rand_char
 
 def Decrypt_Animation(from_, to_):
+    chars = list(from_)  # 文字置換用のリストに変換
+    to_ = list(to_)
     for i in range(len(to_)):
-        chars = list(from_)  # 文字置換用のリストに変換
-        if (0x3040 <= ord(chars[i]) <= 0x309F) or (0x30A0 <= ord(chars[i]) <= 0x30FF) or (0x4E00 <= ord(chars[i]) <= 0x9FFF) or (0xFF61 <= ord(chars[i]) <= 0xFF9F) or (0xFF65 <= ord(chars[i]) <= 0xFF9D):
-            for _ in range(10):
-                chars[i] = gen_ran_char(chars[i])  # ランダム文字
-                # 印刷する行を準備する
-                line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
+        for _ in range(5):
+            chars[i] = gen_ran_char(chars[i])  # ランダム文字
+            # 印刷する行を準備する
+            line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
 
-                print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
-                time.sleep(0.1)
-            chars[i] = to_[i]  # Replace to original character
+            print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+            time.sleep(0.1)
+        chars[i] = to_[i]  # Replace to original character
 
-        print("\r復号化されたテキスト：" + colorama.Fore.GREEN + to_ + colorama.Fore.RESET, end='', flush=True)  # Use carriage return instead of clearing the screen
-        time.sleep(0.1)
+        line = colorama.Fore.GREEN + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i+1:]) + colorama.Fore.RESET
+        print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+        # time.sleep(0.1)
         from_ = "".join(chars)
 
 def Encrypt_Animation(from_, to_):
+    chars = list(from_)  # 文字置換用のリストに変換
+    to_ = list(to_)
     for i in range(len(to_)):
-        chars = list(from_)  # 文字置換用のリストに変換
-        if (0x3040 <= ord(chars[i]) <= 0x309F) or (0x30A0 <= ord(chars[i]) <= 0x30FF) or (0x4E00 <= ord(chars[i]) <= 0x9FFF) or (0xFF61 <= ord(chars[i]) <= 0xFF9F) or (0xFF65 <= ord(chars[i]) <= 0xFF9D):
-            for _ in range(10):
-                chars[i] = gen_ran_char(chars[i])  # ランダム文字
-                # 印刷する行を準備する
-                line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
+        for _ in range(5):
+            chars[i] = gen_ran_char(chars[i])  # ランダム文字
+            # 印刷する行を準備する
+            line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.BLUE + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
 
-                print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
-                time.sleep(0.1)
-            chars[i] = to_[i]  # Replace to original character
+            print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+            time.sleep(0.1)
+        chars[i] = to_[i]  # Replace to original character
 
-        print("\r復号化されたテキスト：" + colorama.Fore.RED + to_ + colorama.Fore.RESET, end='', flush=True)  # Use carriage return instead of clearing the screen
-        time.sleep(0.1)
+        line = colorama.Fore.RED + "".join(chars[:i]) + colorama.Fore.RESET + colorama.Fore.RED + "".join(chars[i]) + colorama.Fore.RESET + colorama.Fore.GREEN + "".join(chars[i+1:]) + colorama.Fore.RESET
+        print("\r復号化されたテキスト：" + line, end='', flush=True)  # Use carriage return instead of clearing the screen
+        # time.sleep(0.1)
         from_ = "".join(chars)
 
 def noArgs():
