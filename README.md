@@ -35,6 +35,7 @@
   - [Prerequisites](#prerequisites)
   - [Run](#Run)
     - [Web Server](#webserver)
+    - [Api](#Api)
     - [Terminal](#terminal)
 - [Usage](#usage)
 - [License](#license)
@@ -81,6 +82,28 @@ This project provides a user-friendly interface for entering plaintext and keys 
 ```
 
 4. Enjoy !!!
+
+
+#### Api
+
+For Japanese Encryption:
+```
+https://vigenerecipher.pythonanywhere.com/encrypt?lang=jp&text=日本が本当に好きですよ&key=そら
+```
+* For Local: http://127.0.0.1:5000/encrypt?lang=jp&text=日本が本当に好きですよ&key=そら
+
+For English Encryption:
+```
+https://vigenerecipher.pythonanywhere.com/encrypt?lang=en&text=I Really Love Japan!!!&key=sky
+```
+#### Here `lang`, `text` and `key` are parameters :
+- `lang` --> Plain text language (<b>en/eng/english</b> or <b>jp/jap/japanese</b>)
+- `text` --> Input text (plain text / encrypted text)
+- `key` --> Key
+* you can also specify response type json or plaintext:
+```
+http://127.0.0.1:5000/encrypt?lang=jp&text=日本が本当に好きですよ&key=そら&type=json
+```
 
 #### terminal
 1. Clone the repository:
