@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title id="website-title">ヴィジュネル暗号 | @sky9262</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .label-width {
+            width: 100%;
+        }
+
+        /* Center the content on larger screens */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 60%;
+                margin: 0 auto;
+            }
+
+        }
+        @media (max-width: 992px) {
+            .container {
+                margin: 15% auto 0;
+            }
+
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .btn-color-mode-switch {
+            display: inline-block;
+            margin: 0px;
+            position: relative;
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner {
+            margin: 0px;
+            width: 140px;
+            height: 40px;
+            background-color: #f5f5f5;
+            border-radius: 26px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;
+            display: block;
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+            content: attr(data-on);
+            position: absolute;
+            font-size: 18px;
+            font-weight: 600;
+            top: 5px;
+            right: 20px;
+            color: #222;
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+            content: attr(data-off);
+            width: 70px;
+            height: 35px;
+            background: #fff;
+            border-radius: 26px;
+            position: absolute;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            left: 2px;
+            top: 2px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 6px -2px #111;
+            padding: 5px 0px;
+            color: #222;
+            font-weight: 600;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"] {
+            width: 140px;
+            height: 40px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            margin: 0px;
+            cursor: pointer;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+            background-color: #f5f5f5;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
+            content: attr(data-on);
+            left: 68px;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+            content: attr(data-off);
+            right: auto;
+            left: 20px;
+        }
+
+        .form-control{
+            height: 100% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-switch" id="language-switch">
+
+        <label class="switch btn-color-mode-switch">
+            <input value="1" id="color_mode" name="color_mode" type="checkbox">
+            <label class="btn-color-mode-switch-inner" data-off="JP" data-on="EN" for="color_mode"></label>
+        </label>
+
+    </div>
+
+    <div class="container">
+        <h1 class="text-center" id="website-header">ヴィジュネル暗号</h1>
+        <ul class="nav nav-tabs" id="cipherTabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="encrypt-tab" data-toggle="tab" href="#encrypt" role="tab"
+                    aria-controls="encrypt" aria-selected="true"><span id="encryption-label">暗号化</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id "decrypt-tab" data-toggle="tab" href="#decrypt" role="tab"
+                    aria-controls="decrypt" aria-selected="false"><span id="decryption-label">復号化</span></a>
+            </li>
+        </ul>
+        <div class="tab-content" id="cipherTabsContent">
+            <div class="tab-pane fade show active" id="encrypt" role="tabpanel" aria-labelledby="encrypt-tab">
+                <div class="form-group mt-3">
+                    <label for="encryption-text" class="label-width translate" id="encrypted-text-label">平文</label>
+                    <input type="text" class="form-control" id="encryption-text" required>
+                </div>
+                <div class="form-group">
+                    <label for="encryption-key" class="label-width translate" id="encryption-key-label">鍵</label>
+                    <input type="text" class="form-control" id="encryption-key" required>
+                </div>
+                <button class="btn btn-primary btn-block mt-3 translate" id="encrypt-btn">暗号化</button>
+                <div class="form-group mt-3">
+                    <label for="encrypted-result" class="label-width translate" id="decrypted-text-label">暗号化されたテキスト</label>
+                    <div type="text" class="form-control translate" id="encrypted-result" readonly>やりましょう！！！</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="decrypt" role="tabpanel" aria-labelledby="decrypt-tab">
+                <div class="form-group mt-3">
+                    <label for "decryption-text" class="label-width translate" id="decryption-text-label">暗号化されたテキスト</label>
+                    <input type="text" class="form-control" id="decryption-text" required>
+                </div>
+                <div class="form-group">
+                    <label for="decryption-key" class="label-width translate" id="decryption-key-label">鍵</label>
+                    <input type="text" class="form-control" id="decryption-key" required>
+                </div>
+                <button class="btn btn-primary btn-block mt-3 translate" id="decrypt-btn">復号化</button>
+                <div class="form-group mt-3">
+                    <label for="decrypted-result" class="label-width translate" id="encrypted-text-label">平文</label>
+                    <div type="text" class="form-control translate" id="decrypted-result" readonly>やりましょう！！！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to toggle between English and Japanese
+        const switchButton = document.getElementById("language-switch");
+        const labels = document.querySelectorAll(".translate");
+        const englishLabels = ["Plain Text", "Key", "Encrypt", "Encrypted Text", "Let's do it!!!", "Encrypted Text", "Key", "Decrypt", "Plain Text", "Let's do it!!!"];
+        const japaneseLabels = ["平文", "鍵", "暗号化", "暗号化されたテキスト", "やりましょう！！！", "暗号化されたテキスト", "鍵", "復号化", "平文", "やりましょう！！！"];
+        const englishTabLabels = ["Encryption", "Decryption"];
+        const japaneseTabLabels = ["暗号化", "復号化"];
+        let isEnglish = false;
+
+        switchButton.addEventListener("click", () => {
+            isEnglish = !isEnglish;
+            labels.forEach((label, index) => {
+                label.textContent = isEnglish ? englishLabels[index]:japaneseLabels[index];
+            });
+            document.getElementById("encryption-label").textContent = isEnglish ? englishTabLabels[0]:japaneseTabLabels[0];
+            document.getElementById("decryption-label").textContent = isEnglish ? englishTabLabels[1]:japaneseTabLabels[1];
+            document.getElementById("website-title").textContent = isEnglish ? "Vigenère Cipher":"ヴィジュネル暗号";
+            document.getElementById("website-header").textContent = isEnglish ? "Vigenère Cipher":"ヴィジュネル暗号";
+        });
+    </script>
+
+
+<script>
+    document.getElementById('encrypt-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        const plaintext = document.getElementById('encryption-text').value;
+        const key = document.getElementById('encryption-key').value;
+
+        fetch('/encrypt', {
+            method: 'POST',
+            body: new URLSearchParams({ plaintext, key, isEnglish }),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(plaintext, data.result)
+            encryptAnimation(plaintext, data.result)
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+    document.getElementById('decrypt-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        const encryptedText = document.getElementById('decryption-text').value;
+        const key = document.getElementById('decryption-key').value;
+
+        fetch('/decrypt', {
+            method: 'POST',
+            body: new URLSearchParams({ encryptedText, key, isEnglish }),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(encryptedText, data.result)
+            decryptAnimation(encryptedText, data.result)
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+</script>
+
+<script>
+    async function encryptAnimation(from_, to_) {
+        const animationText = document.getElementById("encrypted-result");
+
+        for (let i = 0; i <= to_.length; i++) {
+            if (
+                (0x3040 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x309F) ||
+                (0x30A0 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x30FF) ||
+                (0x4E00 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x9FFF) ||
+                (0xFF61 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0xFF9F) ||
+                (0xFF65 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0xFF9D)
+            ) {
+                let decryptedText = [...from_];
+                for (let j = 0; j < 10; j++) {
+                    decryptedText[i] = genRanChar(decryptedText[i]); // Random character
+
+                    const line =
+                        `<span style="color: red">${decryptedText.slice(0, i).join('')}</span>` +
+                        `<span style="color: blue">${decryptedText[i]}</span>` +
+                        `<span style="color: green">${decryptedText.slice(i + 1).join('')}</span>`;
+
+                    animationText.innerHTML = `${line}`;
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                }
+
+                decryptedText[i] = to_[i]; // Replace with the original character
+            }
+
+            from_ = to_.slice(0, i) + from_.slice(i);
+            const line = `<span style="color: red">${from_.slice(0, i)}</span>` +
+                `<span style="color: blue">${from_.charAt(i)}</span>` +
+                `<span style="color: green">${from_.slice(i)}</span>`;
+
+            animationText.innerHTML = `${line}`;
+
+            await new Promise(resolve => setTimeout(resolve, 10));
+        }
+    }
+
+    async function decryptAnimation(from_, to_) {
+        const animationText = document.getElementById("decrypted-result");
+
+        for (let i = 0; i <= to_.length; i++) {
+            if (
+                (0x3040 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x309F) ||
+                (0x30A0 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x30FF) ||
+                (0x4E00 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0x9FFF) ||
+                (0xFF61 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0xFF9F) ||
+                (0xFF65 <= to_.charCodeAt(i) && to_.charCodeAt(i) <= 0xFF9D)
+            ) {
+                let decryptedText = [...from_];
+                for (let j = 0; j < 10; j++) {
+                    decryptedText[i] = genRanChar(decryptedText[i]); // Random character
+
+                    const line =
+                        `<span style="color: green">${decryptedText.slice(0, i).join('')}</span>` +
+                        `<span style="color: blue">${decryptedText[i]}</span>` +
+                        `<span style="color: red">${decryptedText.slice(i + 1).join('')}</span>`;
+
+                    animationText.innerHTML = `${line}`;
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                }
+
+                decryptedText[i] = to_[i]; // Replace with the original character
+            }
+
+            from_ = to_.slice(0, i) + from_.slice(i);
+            const line = `<span style="color: green">${from_.slice(0, i)}</span>` +
+                `<span style="color: blue">${from_.charAt(i)}</span>` +
+                `<span style="color: red">${from_.slice(i)}</span>`;
+
+            animationText.innerHTML = `${line}`;
+
+            await new Promise(resolve => setTimeout(resolve, 10));
+        }
+    }
+
+    function genRanChar(char) {
+        const charCode = char.charCodeAt(0);
+
+        if (0x3040 <= charCode && charCode <= 0x309F) {
+            const randCharCode = Math.floor(Math.random() * (0x3096 - 0x3041 + 1)) + 0x3041;
+            return String.fromCharCode(randCharCode);
+        } else if (0x30A0 <= charCode && charCode <= 0x30FF) {
+            const randCharCode = Math.floor(Math.random() * (0x30F6 - 0x30A1 + 1)) + 0x30A1;
+            return String.fromCharCode(randCharCode);
+        } else if (0x4E00 <= charCode && charCode <= 0x9FFF) {
+            const randCharCode = Math.floor(Math.random() * (0x9FFF - 0x4E00 + 1)) + 0x4E00;
+            return String.fromCharCode(randCharCode);
+        } else if (0xFF61 <= charCode && charCode <= 0xFF9F) {
+            const randCharCode = Math.floor(Math.random() * (0xFF9D - 0xFF66 + 1)) + 0xFF66;
+            return String.fromCharCode(randCharCode);
+        } else if (0xFF65 <= charCode && charCode <= 0xFF9D) {
+            const randCharCode = Math.floor(Math.random() * (0xFF9F - 0xFF61 + 1)) + 0xFF61;
+            return String.fromCharCode(randCharCode);
+        } else {
+            return char;
+        }
+    }
+</script>
+</body>
+
+</html>
