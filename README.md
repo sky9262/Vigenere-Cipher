@@ -19,10 +19,14 @@
 </h3>
 
 ## Web Demo
-[WebDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/6bc517e8-fb0a-4b31-90b9-3377fb8cd356)
+[WebDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/a88ef352-3d27-4b5c-b31b-47f4768f31d1)
 
 ## Terminal Demo
-[WebDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/5ad72450-6d9c-43f1-b1a9-3df4031574a6)
+[TerminalDemo](https://github.com/sky9262/Vigenere-Cipher/assets/68050118/5840bc69-805c-46f1-ac54-491cc2a3a438)
+
+
+
+
 
 
 
