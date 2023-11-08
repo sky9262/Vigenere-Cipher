@@ -9,6 +9,13 @@
 
 [![Live](./static/Live-Click%20Here.svg)](https://vigenerecipher.pythonanywhere.com/)
 
+
+
+<h3 align="center">
+:: Workflow ::
+</h3>
+
+
 ## Table of Contents
 
 - [About](#about)
@@ -19,7 +26,6 @@
     - [Web Server](#webserver)
     - [Terminal](#terminal)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## About
@@ -94,6 +100,30 @@ py JP_Vigenère_Cipher.py -o encrypt -t "Hello World, How are you?" -k thisismyk
 - `-t` --> Input text (plain text / encrypted text)
 - `-k` --> Key
 
-<h3 align="center">
-:: Workflow ::
-</h3>
+
+## Usage
+
+1. Open the web app in your web browser.
+
+2. Choose the language (English or Japanese) using the language switch feature.
+
+3. Select the "Encryption" tab to encrypt plaintext or the "Decryption" tab to decrypt text.
+
+4. Enter the input text in the "Plain Text" or "Encrypted Text" field.
+
+5. Enter the encryption/decryption key in the "Key" field.
+
+6. Click the "Encrypt" or "Decrypt" button to initiate the process. The text transition will be visualized with animations.
+
+7. View the result in the "Encrypted Text" or "Plain Text" field, depending on whether you encrypted or decrypted the text.
+
+
+
+
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE), which means you can use and modify the code for your own purposes. Please see the [License](LICENSE) file for more details.
+
+---
